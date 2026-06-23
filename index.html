@@ -46,7 +46,8 @@ nav a{
 
     position:absolute;
     top:100%;
-    left:0;
+    left:50%;
+    transform:translateX(-50%);
 
     min-width:240px;
 
@@ -295,15 +296,11 @@ section h2{
 </ul></li>
 </ul>
 </nav>
-<!-- HERO -->
-
 <section class="hero" id="hero">
 
 <h1>Nghĩa Trang Liệt Sĩ Vĩnh Hào - Công Trình Thanh Niên năm 2025</h1>
 
 </section>
-
-<!-- GIỚI THIỆU -->
 
 <section id="gioithieu" class="hidden">
 
@@ -320,8 +317,7 @@ Xem thêm
 </a>
 
 </section>
-<!-- Popup -->
- <div class="popup" id="popup">
+<div class="popup" id="popup">
     <div class="popup-content">
         <p id = "popupText"></p>
         <button onclick="closePopup()" class="btn">
@@ -329,8 +325,6 @@ Xem thêm
     </button>
     </div>
 </div>
-
-<!-- HÌNH ẢNH -->
 
 <section id="hinhanh" class="hidden">
 
@@ -354,8 +348,6 @@ Xem thêm
 
 </div>
 </section>
-
-<!-- LIÊN HỆ -->
 
 <section id="lienhe" class="hidden">
 <h2>Liên hệ</h2>
@@ -428,10 +420,16 @@ const menuBtn = document.getElementById("menuBtn");
 const dropdownMenu = document.getElementById("dropdownMenu");
 
 menuBtn.addEventListener("click",(e)=>{
+    e.stopPropagation();
     dropdownMenu.classList.toggle("active");
 });
 document.addEventListener("click",(e)=>{
+    if(!menuBtn.contains(e.target)){
         dropdownMenu.classList.remove("active");
+    }
+});
+dropdownMenu.addEventListener("click", () => {
+    dropdownMenu.classList.remove("active");
 });
 
 </script>
